@@ -10,3 +10,8 @@ https://developer.apple.com/library/content/documentation/NetworkingInternet/Con
 > http://blog.csdn.net/shenjie12345678/article/details/41120637
 > http://www.cocoachina.com/bbs/read.php?tid-123567.html
 >
+
+# APNS token and certificate:
+
+https://help.apple.com/xcode/mac/current/#/dev54d690a66
+https://help.apple.com/xcode/mac/current/#/dev11b059073
