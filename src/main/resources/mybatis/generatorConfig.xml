@@ -1,118 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <classPathEntry location="C:\\Software\\mvnRepository\\mysql\\mysql-connector-java\\5.1.44\\mysql-connector-java-5.1.44.jar"/>
+    <classPathEntry location="D:\\Java\\MavenRepository\\mysql\\mysql-connector-java\\5.1.44\\mysql-connector-java-5.1.44.jar"/>
     <context id="ncee" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!-- DB connection information -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/ncee?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC" userId="root" password="lotus">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/apns?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC" userId="root" password="lotus">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- Location of Model classes -->
-        <javaModelGenerator targetPackage="com.ncee.dao.model" targetProject="C:\\Users\\Administrator\\IdeaProjects\\papermanager\\src\\main\\java">
+        <javaModelGenerator targetPackage="com.ps.apns.dao.model" targetProject="E:\\workspace\\APNSServerDEMO\\src\\main\\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!-- Location of mapper files -->
-        <sqlMapGenerator targetPackage="com.ncee.dao.mapper" targetProject="C:\\Users\\Administrator\\IdeaProjects\\papermanager\\src\\main\\java">
+        <sqlMapGenerator targetPackage="." targetProject="E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\mybatis\\sqlmapper">
             <property name="enableSubPackages" value="true"></property>
         </sqlMapGenerator>
         <!--  Location of DAO classes -->
-        <javaClientGenerator targetPackage="com.ncee.dao.domain" targetProject="C:\\Users\\Administrator\\IdeaProjects\\papermanager\\src\\main\\java" type="MIXEDMAPPER">
+        <javaClientGenerator targetPackage="com.ps.apns.dao.domain" targetProject="E:\\workspace\\APNSServerDEMO\\src\\main\\java" type="MIXEDMAPPER">
             <property name="enableSubPackages" value="true"></property>
         </javaClientGenerator>
         <!-- related table and classese -->
-        <table schema="ncee" tableName="user_role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="rights" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="province" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="check_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="construct_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="score" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="year" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="difficulty_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="exam_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="course" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="book" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="knowledge_level" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="knowledge_module" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="knowledge" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="knowledge_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_image" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-            <!--
-            <columnOverride column="answer" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
-             -->
-        </table>
-        <table schema="ncee" tableName="question_selection" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_has_check_type" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="subquestion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_has_knowledge" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_has_image" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="question_metadata" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <!-- View of database -->
-        <table schema="ncee" tableName="V_question_basic_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="V_question_full_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <property name="selectAllOrderByClause" value="id desc"/>
-        </table>
-        <table schema="ncee" tableName="V_question_knowledge_info" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table schema="apns" tableName="token" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="selectAllOrderByClause" value="id desc"/>
         </table>
     </context>

@@ -1,49 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ps.apns.dao.domain.TokenMapper" >
-  <resultMap id="BaseResultMap" type="com.ps.apns.dao.model.Token" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="token" property="token" jdbcType="VARCHAR" />
-    <result column="active" property="active" jdbcType="TINYINT" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ps.apns.dao.domain.TokenMapper">
+  <resultMap id="BaseResultMap" type="com.ps.apns.dao.model.Token">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="active" jdbcType="TINYINT" property="active" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     id, token, active
   </sql>
-  <insert id="insertSelective" parameterType="com.ps.apns.dao.model.Token" >
+  <insert id="insertSelective" parameterType="com.ps.apns.dao.model.Token">
     insert into token
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="token != null" >
+      <if test="token != null">
         token,
       </if>
-      <if test="active != null" >
+      <if test="active != null">
         active,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="token != null" >
+      <if test="token != null">
         #{token,jdbcType=VARCHAR},
       </if>
-      <if test="active != null" >
+      <if test="active != null">
         #{active,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ps.apns.dao.model.Token" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ps.apns.dao.model.Token">
     update token
-    <set >
-      <if test="token != null" >
+    <set>
+      <if test="token != null">
         token = #{token,jdbcType=VARCHAR},
       </if>
-      <if test="active != null" >
+      <if test="active != null">
         active = #{active,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-</mapper>
+  </mapper>

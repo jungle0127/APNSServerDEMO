@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  context-path: /apns-server
+
+spring:
+  datasource:
+    name: apnsdatasource
+    url: jdbc:mysql://127.0.0.1:3306/apns
+    username: root
+    password: lotus
+
+mybatis:
+  mapper-locations: classpath:mybatis/sqlmapper/*Mapper.xml
+  type-aliases-package: com.ps.apns.dao.model
