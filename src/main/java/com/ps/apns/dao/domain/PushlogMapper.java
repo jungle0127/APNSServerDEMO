@@ -1,45 +1,46 @@
 package com.ps.apns.dao.domain;
 
-import com.ps.apns.dao.model.Token;
+import com.ps.apns.dao.model.Pushlog;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-public interface TokenMapper {
+public interface PushlogMapper {
     @Delete({
-        "delete from token",
+        "delete from pushlog",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into token (id, token, ",
-        "active)",
+        "insert into pushlog (id, token, ",
+        "content, send_time)",
         "values (#{id,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, ",
-        "#{active,jdbcType=TINYINT})"
+        "#{content,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP})"
     })
-    int insert(Token record);
+    int insert(Pushlog record);
 
-    int insertSelective(Token record);
+    int insertSelective(Pushlog record);
 
     @Select({
         "select",
-        "id, token, active",
-        "from token",
+        "id, token, content, send_time",
+        "from pushlog",
         "where id = #{id,jdbcType=BIGINT}"
     })
     @ResultMap("BaseResultMap")
-    Token selectByPrimaryKey(Long id);
+    Pushlog selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKeySelective(Token record);
+    int updateByPrimaryKeySelective(Pushlog record);
 
     @Update({
-        "update token",
+        "update pushlog",
         "set token = #{token,jdbcType=VARCHAR},",
-          "active = #{active,jdbcType=TINYINT}",
+          "content = #{content,jdbcType=VARCHAR},",
+          "send_time = #{sendTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=BIGINT}"
     })
-    int updateByPrimaryKey(Token record);
+    int updateByPrimaryKey(Pushlog record);
 }

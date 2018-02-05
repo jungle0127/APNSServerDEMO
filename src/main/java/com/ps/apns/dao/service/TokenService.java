@@ -18,4 +18,7 @@ public class TokenService {
         this.tokenMapper.insert(pojo);
     }
 
+    public Token getToken(Long id){
+        return this.tokenMapper.selectByPrimaryKey(1L);
+    }
 }

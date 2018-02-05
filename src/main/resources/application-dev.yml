@@ -9,6 +9,16 @@ spring:
     username: root
     password: lotus
 
+apple:
+  tlsauth:
+    p12filepath: classpath:apple/key.p12
+    p12filepwd: lotus
+  tokenauth:
+    p8filepath: classpath:apple/key.p8
+    teamid: teamid
+    keyid: keyid
+  topic: bundle.id
+
 mybatis:
   mapper-locations: classpath:mybatis/sqlmapper/*Mapper.xml
   type-aliases-package: com.ps.apns.dao.model
