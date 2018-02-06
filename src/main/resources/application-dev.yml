@@ -11,13 +11,13 @@ spring:
 
 apple:
   tlsauth:
-    p12filepath: classpath:apple/key.p12
-    p12filepwd: lotus
+    p12filepath: E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\apple\\apns-dev-key.p12
+    p12filepwd: 123456
   tokenauth:
     p8filepath: classpath:apple/key.p8
     teamid: teamid
     keyid: keyid
-  topic: bundle.id
+  topic: cn.com.westone.westmail
 
 mybatis:
   mapper-locations: classpath:mybatis/sqlmapper/*Mapper.xml

@@ -33,7 +33,7 @@ public class TokenServiceTest {
 	@Test
 	@DatabaseSetup("classpath:dbunit/token.xml")
 	public void testInsert() {
-		this.tokenService.addToken("b606c95c4b3956de89d67ecfa02811ebc5d1a09c6f832c3be67b1d9554a66683");
+		this.tokenService.addToken("b877f978e26d114a444d9cb9b647578bb9e4b087fcfc130bcc0a45df0caaea70");
 		Assert.assertTrue(true);
 	}
 	@Test
