@@ -12,9 +12,6 @@ import com.turo.pushy.apns.util.concurrent.PushNotificationFuture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import sun.java2d.pipe.SpanShapeRenderer;
-
-import java.util.concurrent.ExecutionException;
 
 
 @Service("apnsService")
@@ -31,9 +28,11 @@ public class APNSService {
     private TokenService tokenService;
     @Autowired
     private PushlogService pushlogService;
-    
-    private ApnsClient apnsClient = ApnsClientSingleton.getInstance(this.p12FilePath,this.p12Pwd);
-
+    //TODO
+    private ApnsClient apnsClient;// = ApnsClientSingleton.getInstance(this.p12FilePath,this.p12Pwd);
+    public APNSService() {
+    	
+    }
     public void sendNotification(){
         String tokenStr = tokenService.getToken(1L).getToken();
         final SimpleApnsPushNotification pushNotification;

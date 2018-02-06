@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 public class TokenService {
     @Autowired
     private TokenMapper tokenMapper;
-
+    public TokenService() {
+    	
+    }
     public  void addToken(String token){
         // b606c95c4b3956de89d67ecfa02811ebc5d1a09c6f832c3be67b1d9554a66683
         Token pojo = new Token();
