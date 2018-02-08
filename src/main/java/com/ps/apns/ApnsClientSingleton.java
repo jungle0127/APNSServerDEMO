@@ -20,6 +20,7 @@ public class ApnsClientSingleton {
                         apnsClient = new ApnsClientBuilder().setApnsServer(ApnsClientBuilder.DEVELOPMENT_APNS_HOST)
                                 .setClientCredentials(new File(p12FilePath), p12Pwd)
                                 .build();
+                        
                         return apnsClient;
                     } catch (IOException e) {
                         e.printStackTrace();

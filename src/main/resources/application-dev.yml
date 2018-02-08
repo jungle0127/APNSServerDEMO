@@ -11,7 +11,7 @@ spring:
 
 apple:
   tlsauth:
-    p12filepath: E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\apple\\apns-dev-key.p12
+    p12filepath: E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\apple\\apns-dev-cert.p12
     p12filepwd: 123456
   tokenauth:
     p8filepath: classpath:apple/key.p8
