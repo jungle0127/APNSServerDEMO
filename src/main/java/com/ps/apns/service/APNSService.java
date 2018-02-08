@@ -12,12 +12,16 @@ import com.turo.pushy.apns.util.TokenUtil;
 import com.turo.pushy.apns.util.concurrent.PushNotificationFuture;
 import com.turo.pushy.apns.util.concurrent.PushNotificationResponseListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service("apnsService")
 public class APNSService {
+	private static final Logger logger = LoggerFactory.getLogger(APNSService.class);
+	
 	@Value("${apple.tlsauth.p12filepath}")
 	private String p12FilePath;
 	@Value("${apple.tlsauth.p12filepwd}")
@@ -49,11 +53,20 @@ public class APNSService {
 	public void sendNotification() {
 //		this.apnsClient = ApnsClientSingleton.getInstance(this.p12FilePath, this.p12Pwd);
 		this.apnsClient = ApnsClientManager.getInstance(this.p8FilePath, this.teamId, this.keyId);
+		if(apnsClient != null) {
+			logger.info("Got APNs client instance.");
+		}
+		else {
+			logger.warn("APNs client is null.");
+			return;
+		}
 		String tokenStr = tokenService.getToken(1L).getToken();
+		logger.info("Got device token:{} from DB", tokenStr);
 		final SimpleApnsPushNotification pushNotification;
 		final ApnsPayloadBuilder payloadBuilder = new ApnsPayloadBuilder();
 		payloadBuilder.setAlertBody("Example!");
-
+		payloadBuilder.setAlertTitle("DEMO Notification");
+		
 		final String payload = payloadBuilder.buildWithDefaultMaximumLength();
 		final String token = TokenUtil.sanitizeTokenString(tokenStr);
 		pushNotification = new SimpleApnsPushNotification(token, this.topic, payload);
@@ -79,12 +92,17 @@ public class APNSService {
 
 					if (pushNotificationResponse.isAccepted()) {
 						System.out.println("Push notification accepted by APNs gateway.");
+						logger.info("Push notification accepted by APNs gateway.");
 					} else {
 						System.out.println("Notification rejected by the APNs gateway: "
+								+ pushNotificationResponse.getRejectionReason());
+						logger.warn("Notification rejected by the APNs gateway: "
 								+ pushNotificationResponse.getRejectionReason());
 
 						if (pushNotificationResponse.getTokenInvalidationTimestamp() != null) {
 							System.out.println("\t…and the token is invalid as of "
+									+ pushNotificationResponse.getTokenInvalidationTimestamp());
+							logger.warn("\t…and the token is invalid as of "
 									+ pushNotificationResponse.getTokenInvalidationTimestamp());
 						}
 					}
@@ -93,6 +111,7 @@ public class APNSService {
 					// APNs gateway. We can find the exception that caused the failure
 					// by getting future.cause().
 					future.cause().printStackTrace();
+					logger.error(future.cause().getMessage());
 				}
 			}
 		});
