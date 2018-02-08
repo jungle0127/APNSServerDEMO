@@ -2,6 +2,7 @@ package com.ps.apns.controller;
 
 
 import com.ps.apns.dao.service.TokenService;
+import com.ps.apns.dto.RestResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +17,13 @@ public class TokenController {
     @Autowired
     private TokenService tokenService;
     @PostMapping("/token")
-    public String receiveToken( @RequestBody String deviceId){
+    public RestResponse<String> receiveToken( @RequestBody String deviceId){
     	logger.info("DeviceID {} will be added.", deviceId);
         this.tokenService.addToken(deviceId);
-        return deviceId;
+        RestResponse<String> resp = new RestResponse<>();
+        resp.setCode(1);
+        resp.setData(deviceId);
+        resp.setMessage("Success");
+        return resp;
     }
 }
