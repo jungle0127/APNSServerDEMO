@@ -65,7 +65,7 @@ public class ApnsClientManager {
             try {
                 final ApnsClient apnsClient = new ApnsClientBuilder()
                         .setApnsServer(ApnsClientBuilder.DEVELOPMENT_APNS_HOST)
-                        .setSigningKey(ApnsSigningKey.loadFromPkcs8File(new File("/path/to/key.p8"),teamId, keyId))
+                        .setSigningKey(ApnsSigningKey.loadFromPkcs8File(new File(pkcs8File),teamId, keyId))
                         .build();
                 apnsClientHashMap.put(pkcs8File + teamId + keyId, apnsClient);
                 return apnsClient;

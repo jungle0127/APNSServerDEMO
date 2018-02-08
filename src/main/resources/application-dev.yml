@@ -14,9 +14,9 @@ apple:
     p12filepath: E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\apple\\apns-dev-cert.p12
     p12filepwd: 123456
   tokenauth:
-    p8filepath: classpath:apple/key.p8
-    teamid: teamid
-    keyid: keyid
+    p8filepath: E:\\workspace\\APNSServerDEMO\\src\\main\\resources\\apple\\AuthKey_H47XK58T36.p8
+    teamid: teamId
+    keyid: keyId
   topic: cn.com.westone.westmail
 
 mybatis:

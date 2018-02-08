@@ -1,5 +1,6 @@
 package com.ps.apns.service;
 
+import com.ps.apns.ApnsClientManager;
 import com.ps.apns.ApnsClientSingleton;
 import com.ps.apns.dao.service.PushlogService;
 import com.ps.apns.dao.service.TokenService;
@@ -21,10 +22,19 @@ public class APNSService {
 	private String p12FilePath;
 	@Value("${apple.tlsauth.p12filepwd}")
 	private String p12Pwd;
+	@Value("${apple.tokenauth.p8filepath}")	
+	private String p8FilePath;
+	@Value("${apple.tokenauth.teamid}")
+	private String teamId;
+	@Value("${apple.tokenauth.keyid}")
+	private String keyId;
+	
 	@Value("${apple.topic}")
 	// topic is generally the bundle ID of the receiving app
 	private String topic;
 
+	
+	
 	@Autowired
 	private TokenService tokenService;
 	@Autowired
@@ -37,7 +47,8 @@ public class APNSService {
 	}
 
 	public void sendNotification() {
-		this.apnsClient = ApnsClientSingleton.getInstance(this.p12FilePath, this.p12Pwd);
+//		this.apnsClient = ApnsClientSingleton.getInstance(this.p12FilePath, this.p12Pwd);
+		this.apnsClient = ApnsClientManager.getInstance(this.p8FilePath, this.teamId, this.keyId);
 		String tokenStr = tokenService.getToken(1L).getToken();
 		final SimpleApnsPushNotification pushNotification;
 		final ApnsPayloadBuilder payloadBuilder = new ApnsPayloadBuilder();
