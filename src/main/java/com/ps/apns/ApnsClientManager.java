@@ -46,7 +46,7 @@ public class ApnsClientManager {
             try {
                 final ApnsClient apnsClient = new ApnsClientBuilder()
                         .setApnsServer(ApnsClientBuilder.DEVELOPMENT_APNS_HOST)
-                        .setClientCredentials(new File("/path/to/certificate.p12"), "p12-file-password")
+                        .setClientCredentials(new File(pkcs12File), pkcs12FilePassword)
                         .build();
                 apnsClientHashMap.put(pkcs12File + pkcs12FilePassword, apnsClient);
                 return apnsClient;
